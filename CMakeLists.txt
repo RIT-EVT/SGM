@@ -44,7 +44,7 @@ include(${EVT_CORE_DIR}/cmake/evt-core_install.cmake)
 ###############################################################################
 # Project Setup
 ###############################################################################
-set(BOARD_LIB_NAME BOARD_NAME)
+set(BOARD_LIB_NAME SGM)
 if("${BOARD_LIB_NAME}" STREQUAL BOARD_NAME)
     message(FATAL_ERROR
             "You must set the template project name in the top-level CMakeLists.txt")
@@ -57,12 +57,15 @@ project(${BOARD_LIB_NAME}
         LANGUAGES CXX C
         )
 
-add_library(${PROJECT_NAME} STATIC)
+add_library(${PROJECT_NAME} STATIC
+        src/dev/StrainGauge.cpp
+        src/dev/StrainGauge.cpp
+)
 
 # Add sources
 target_sources(${PROJECT_NAME} PRIVATE
         src/dev/LED.cpp
-        src/BOARD_NAME.cpp
+        src/SGM.cpp
         )
 
 ###############################################################################

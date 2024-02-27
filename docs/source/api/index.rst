@@ -5,7 +5,7 @@ This documentation outlines the library for SGM.
 
 DEV
 ***
-LED
+LED, 
 Strain Gauge (via OpAmp)
 
 SGM

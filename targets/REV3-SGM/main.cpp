@@ -5,8 +5,9 @@
  */
 
 #include <EVT/io/UART.hpp>
-#include <EVT/manager.hpp>
 #include <EVT/io/pin.hpp>
+#include <EVT/manager.hpp>
+#include <SGM.hpp>
 
 namespace IO = EVT::core::IO;
 

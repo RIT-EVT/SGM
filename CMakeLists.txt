@@ -57,11 +57,12 @@ project(${BOARD_LIB_NAME}
         LANGUAGES CXX C
         )
 
-add_library(${PROJECT_NAME} STATIC)
+add_library(${PROJECT_NAME} STATIC
+        targets/strainGauge/main.cpp
+        targets/strainGauge/main.cpp)
 
 # Add sources
 target_sources(${PROJECT_NAME} PRIVATE
-        src/dev/LED.cpp
         src/SGM.cpp
         )
 

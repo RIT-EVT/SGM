@@ -17,7 +17,7 @@ public:
      * @param[in] adc The ADC to use to convert ADC values into strain/stress
      * @param[in] conversion The conversion function
      */
-    strainGauge(EVT::core::IO::ADC& adc, uint32_t (*conversion)(uint32_t));
+    explicit strainGauge(EVT::core::IO::ADC& adc, uint32_t (*conversion)(uint32_t));
 
     /**
      * Return the processed data of the strain gauge

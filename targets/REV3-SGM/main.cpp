@@ -76,11 +76,14 @@ int main() {
     time::wait(500);
 
     // Create an instance for each strain gauge
-    SGM::DEV::strainGauge strainGauge0 = SGM::DEV::strainGauge(adc0, convert);
-    SGM::DEV::strainGauge strainGauge1 = SGM::DEV::strainGauge(adc1, convert);
-    SGM::DEV::strainGauge strainGauge2 = SGM::DEV::strainGauge(adc2, convert);
-    SGM::DEV::strainGauge strainGauge3 = SGM::DEV::strainGauge(adc3, convert);
+    SGM::DEV::strainGauge gauges[NUM_GAUGES] = {
+        SGM::DEV::strainGauge(adc0, convert),
+        SGM::DEV::strainGauge(adc1, convert),
+        SGM::DEV::strainGauge(adc2, convert),
+        SGM::DEV::strainGauge(adc3, convert),
+    };
 
+    /**
     //Testing the Strain Gauge:
     while(1) {
         uart.printf("Processed stress: %dmC\r\n",
@@ -89,6 +92,8 @@ int main() {
                     static_cast<int>(strainGauge0.getRawADC()));
         time::wait(100);
     }
+     **/
+
     /**
      *  while (1) {
      *      // Read user input
@@ -97,6 +102,8 @@ int main() {
      *      uart.printf("\n\recho: %s\n\r", buf);
      *  }
      */
+
+    SGM::SGM sgm = SGM::SGM(gauges);
 
     /* Update with appropriate timer */
 
@@ -147,11 +154,16 @@ int main() {
     IO::initializeCANopenDriver(&canOpenQueue, &can, &timer, &canStackDriver, &nvmDriver, &timerDriver, &canDriver);
 
     // Initialize the CANOpen node we are using.
-    IO::initializeCANopenNode(&canNode, &tmu, &canStackDriver, sdoBuffer, appTmrMem);
+    IO::initializeCANopenNode(&canNode, &sgm, &canStackDriver, sdoBuffer, appTmrMem);
 
     // Set the node to operational mode
     CONmtSetMode(&canNode.Nmt, CO_OPERATIONAL);
 
     time::wait(500);
 
+    while (1) {
+        sgm.process();
+        IO::processCANopenNode(&canNode);
+        time::wait(1000);
+    }
 }

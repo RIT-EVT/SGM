@@ -83,26 +83,6 @@ int main() {
         SGM::DEV::strainGauge(adc3, convert),
     };
 
-    /**
-    //Testing the Strain Gauge:
-    while(1) {
-        uart.printf("Processed stress: %dmC\r\n",
-                    static_cast<int>(strainGauge0.getProcessedData()));
-        uart.printf("Voltage: %dV\r\n",
-                    static_cast<int>(strainGauge0.getRawADC()));
-        time::wait(100);
-    }
-     **/
-
-    /**
-     *  while (1) {
-     *      // Read user input
-     *      uart.printf("Enter message: ");
-     *      uart.gets(buf, 100);
-     *      uart.printf("\n\recho: %s\n\r", buf);
-     *  }
-     */
-
     SGM::SGM sgm = SGM::SGM(gauges);
 
     /* Update with appropriate timer */

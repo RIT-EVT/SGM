@@ -26,7 +26,10 @@ public:
      */
     explicit SGM(DEV::strainGauge gauges[NUM_GAUGES]);
 
-
+    /**
+     * Stores the 4 strain gauges
+     */
+    DEV::strainGauge gauges[NUM_GAUGES];
 
     /**
      * The node ID used to identify the device on the CAN network.
@@ -62,11 +65,6 @@ public:
     uint8_t getNumElements() override;
 
 private:
-    /**
-     * Stores the 4 MAX31855 thermocouples
-     */
-    DEV::strainGauge gauges[NUM_GAUGES];
-
     /**
      * Stores the 4 32-bit voltage values.
      */

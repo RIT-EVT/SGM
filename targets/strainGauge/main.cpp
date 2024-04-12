@@ -28,20 +28,31 @@ int main() {
 
     time::wait(500);
 
-    IO::ADC& adc = IO::getADC<IO::Pin::PA_0>();
+    // Setup pins for Strain Gauges
+    IO::ADC& adc0 = IO::getADC<IO::Pin::PA_0>();
+    IO::ADC& adc1 = IO::getADC<IO::Pin::PA_0>();
+    IO::ADC& adc2 = IO::getADC<IO::Pin::PA_0>();
+    IO::ADC& adc3 = IO::getADC<IO::Pin::PA_0>();
 
     time::wait(500);
 
-    // Setup the strain gauge device
-    SGM::SGM strainGauge(adc, convert);
+    // Create an instance for each strain gauge
+    SGM::DEV::strainGauge gauges[NUM_GAUGES] = {
+        SGM::DEV::strainGauge(adc0, convert),
+        SGM::DEV::strainGauge(adc1, convert),
+        SGM::DEV::strainGauge(adc2, convert),
+        SGM::DEV::strainGauge(adc3, convert),
+    };
+
+    SGM::SGM sgm = SGM::SGM(gauges);
 
     uart.printf("Starting thermistor test\r\n");
 
     while (1) {
         uart.printf("Temperature: %dmC\r\n",
-                    static_cast<int>(strainGauge.getProcessedData()));
+                    static_cast<int>(sgm.gauges[0].getProcessedData()));
         uart.printf("Voltage: %dV\r\n",
-                    static_cast<int>(strainGauge.getRawADC()));
+                    static_cast<int>(sgm.gauges[0].getRawADC()));
         time::wait(100);
     }
 }

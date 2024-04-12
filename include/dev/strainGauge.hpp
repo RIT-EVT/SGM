@@ -40,6 +40,6 @@ private:
     uint32_t (*conversion)(uint32_t);
 };
 
-}// namespace strainGauge
+}// namespace SGM::DEV
 
 #endif//strainGauge_STRAINGAUGE_HPP

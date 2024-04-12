@@ -1,11 +1,11 @@
 /**
 * This example prints out stress reading from a strain gauge
 */
-#include <SGM.hpp>
 #include <EVT/io/ADC.hpp>
 #include <EVT/io/UART.hpp>
 #include <EVT/manager.hpp>
 #include <EVT/utils/time.hpp>
+#include <SGM.hpp>
 
 namespace IO = EVT::core::IO;
 namespace DEV = EVT::core::DEV;

@@ -1,12 +1,12 @@
-#include <EVT/io/UART.hpp>
-#include <EVT/io/pin.hpp>
-#include <EVT/io/ADC.hpp>
-#include <EVT/manager.hpp>
 #include <EVT/dev/MCUTimer.hpp>
-#include <EVT/utils/time.hpp>
+#include <EVT/io/ADC.hpp>
 #include <EVT/io/CANOpenMacros.hpp>
 #include <EVT/io/CANopen.hpp>
+#include <EVT/io/UART.hpp>
+#include <EVT/io/pin.hpp>
+#include <EVT/manager.hpp>
 #include <EVT/utils/log.hpp>
+#include <EVT/utils/time.hpp>
 #include <SGM.hpp>
 
 namespace IO = EVT::core::IO;
@@ -19,7 +19,6 @@ namespace DEV = EVT::core::DEV;
  * function will look like. In actuality, this will be determined through
  * testing/reading the thermistor datasheet.
  */
-
 
 uint32_t convert(uint32_t voltage) {
     return voltage / 2;
@@ -98,7 +97,6 @@ int main() {
     // Will store CANopen messages that will be populated by the EVT-core CAN
     // interrupt
     EVT::core::types::FixedQueue<CANOPEN_QUEUE_SIZE, IO::CANMessage> canOpenQueue;
-
 
     /* Update with appropriate CAN pins */
 

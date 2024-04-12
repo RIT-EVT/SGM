@@ -1,14 +1,14 @@
 #pragma once
 #ifndef EVT_STRAIN_GAUGE
-#define EVT_STRAIN_GAUGE
+    #define EVT_STRAIN_GAUGE
 
-#include <EVT/io/ADC.hpp>
-#include <EVT/io/CANDevice.hpp>
-#include <EVT/io/CANOpenMacros.hpp>
-#include <co_core.h>
-#include <dev/strainGauge.hpp>
+    #include <EVT/io/ADC.hpp>
+    #include <EVT/io/CANDevice.hpp>
+    #include <EVT/io/CANOpenMacros.hpp>
+    #include <co_core.h>
+    #include <dev/strainGauge.hpp>
 
-#define NUM_GAUGES 4
+    #define NUM_GAUGES 4
 
 namespace IO = EVT::core::IO;
 
@@ -35,8 +35,6 @@ public:
      * The node ID used to identify the device on the CAN network.
      */
     static constexpr uint8_t NODE_ID = 0;
-
-
 
     /**
      * Gets the object dictionary
@@ -112,7 +110,6 @@ private:
         DATA_LINK_21XX(0x00, 3, CO_TUNSIGNED32, (uintptr_t) &gaugeVolts[2]),
         DATA_LINK_21XX(0x00, 4, CO_TUNSIGNED32, (uintptr_t) &gaugeVolts[3]),
 
-
         /***
         // TPDO 1 DATA LINKS
         DATA_LINK_START_KEY_21XX(1, 4),
@@ -124,7 +121,6 @@ private:
 
         CO_OBJ_DICT_ENDMARK,
     };
-
 };
 
 }// namespace SGM

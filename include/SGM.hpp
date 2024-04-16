@@ -1,14 +1,11 @@
 #pragma once
-#ifndef EVT_STRAIN_GAUGE
-    #define EVT_STRAIN_GAUGE
+#include <EVT/io/ADC.hpp>
+#include <EVT/io/CANDevice.hpp>
+#include <EVT/io/CANOpenMacros.hpp>
+#include <co_core.h>
+#include <dev/StrainGauge.hpp>
 
-    #include <EVT/io/ADC.hpp>
-    #include <EVT/io/CANDevice.hpp>
-    #include <EVT/io/CANOpenMacros.hpp>
-    #include <co_core.h>
-    #include <dev/strainGauge.hpp>
-
-    #define NUM_GAUGES 4
+#define NUM_GAUGES 4
 
 namespace IO = EVT::core::IO;
 
@@ -20,28 +17,16 @@ namespace SGM {
 class SGM : public CANDevice {
 public:
     /**
-     * Constructor takes an array 4 thermocouples
+     * Constructor takes an array 4 strain gauges
      *
-     * @param thermocouples the MAX31855 thermocouples
+     * @param[in] gauges the strain gauges
      */
     explicit SGM(DEV::strainGauge gauges[NUM_GAUGES]);
-
-    /**
-     * Stores the 4 strain gauges
-     */
-    DEV::strainGauge gauges[NUM_GAUGES];
 
     /**
      * The node ID used to identify the device on the CAN network.
      */
     static constexpr uint8_t NODE_ID = 0;
-
-    /**
-     * Gets the object dictionary
-     *
-     * @return an object dictionary
-     */
-    CO_OBJ_T* getObjectDictionary();
 
     /**
      * Updates the voltage values in an array from the SGM object.
@@ -64,9 +49,21 @@ public:
 
 private:
     /**
+     * Stores the 4 strain gauges
+     */
+    DEV::strainGauge gauges[NUM_GAUGES];
+
+    /**
      * Stores the 4 32-bit voltage values.
      */
     uint32_t gaugeVolts[NUM_GAUGES] = {};
+
+    /**
+     * Gets the object dictionary
+     *
+     * @return an object dictionary
+     */
+    override CO_OBJ_T* getObjectDictionary();
 
     /**
      * Object Dictionary Size
@@ -124,5 +121,3 @@ private:
 };
 
 }// namespace SGM
-
-#endif

@@ -17,7 +17,7 @@ namespace DEV = EVT::core::DEV;
 /**
  * Note, this conversion function is just to show off how a conversion
  * function will look like. In actuality, this will be determined through
- * testing/reading the thermistor datasheet.
+ * testing/reading the strain gauge datasheet.
  */
 
 uint32_t convert(uint32_t voltage) {

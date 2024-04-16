@@ -80,11 +80,11 @@ int main() {
     time::wait(500);
 
     // Create an instance for each strain gauge
-    SGM::DEV::strainGauge gauges[NUM_GAUGES] = {
-        SGM::DEV::strainGauge(adc0, convert),
-        SGM::DEV::strainGauge(adc1, convert),
-        SGM::DEV::strainGauge(adc2, convert),
-        SGM::DEV::strainGauge(adc3, convert),
+    SGM::DEV::StrainGauge gauges[NUM_GAUGES] = {
+        SGM::DEV::StrainGauge(adc0, convert),
+        SGM::DEV::StrainGauge(adc1, convert),
+        SGM::DEV::StrainGauge(adc2, convert),
+        SGM::DEV::StrainGauge(adc3, convert),
     };
 
     SGM::SGM sgm = SGM::SGM(gauges);

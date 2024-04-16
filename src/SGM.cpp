@@ -3,7 +3,7 @@
 namespace IO = EVT::core::IO;
 
 namespace SGM {
-SGM::SGM(DEV::strainGauge gauges[NUM_GAUGES]) : gauges{gauges[0], gauges[1], gauges[2], gauges[3]} {}
+SGM::SGM(DEV::StrainGauge gauges[NUM_GAUGES]) : gauges{gauges[0], gauges[1], gauges[2], gauges[3]} {}
 
 CO_OBJ_T* SGM::getObjectDictionary() {
     return objectDictionary;

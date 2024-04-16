@@ -58,7 +58,8 @@ project(${BOARD_LIB_NAME}
         )
 
 add_library(${PROJECT_NAME} STATIC
- include/dev/strainGauge.hpp
+        targets/strainGauge/main.cpp
+        include/dev/strainGauge.hpp
         src/dev/strainGauge.cpp)
 
 # Add sources

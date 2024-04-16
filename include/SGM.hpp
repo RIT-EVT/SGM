@@ -21,7 +21,7 @@ public:
      *
      * @param[in] gauges the strain gauges
      */
-    explicit SGM(DEV::strainGauge gauges[NUM_GAUGES]);
+    explicit SGM(DEV::StrainGauge gauges[NUM_GAUGES]);
 
     /**
      * The node ID used to identify the device on the CAN network.
@@ -51,7 +51,7 @@ private:
     /**
      * Stores the 4 strain gauges
      */
-    DEV::strainGauge gauges[NUM_GAUGES];
+    DEV::StrainGauge gauges[NUM_GAUGES];
 
     /**
      * Stores the 4 32-bit voltage values.

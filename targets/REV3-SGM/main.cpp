@@ -1,3 +1,8 @@
+/**
+ * This target collects and transmits data from multiple strain gauges to the CANopen network via the SGM board.
+ * The target reads ADC values, performs slight processing, and sends the data to the CANopen network.
+ */
+
 #include <EVT/dev/MCUTimer.hpp>
 #include <EVT/io/ADC.hpp>
 #include <EVT/io/CANOpenMacros.hpp>

@@ -40,6 +40,6 @@ private:
     uint32_t (*conversion)(uint32_t);
 };
 
-}    // namespace SGM::DEV
+}// namespace SGM::DEV
 
-#endif    //_STRAINGAUGE_HPP
+#endif//_STRAINGAUGE_HPP

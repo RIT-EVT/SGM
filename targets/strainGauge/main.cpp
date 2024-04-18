@@ -50,9 +50,9 @@ int main() {
 
     while (1) {
         uart.printf("Strain: %dunit\r\n",
-                    static_cast<int>(sgm.gauges[0].getProcessedData()));
+                    static_cast<int>(gauges[0].getProcessedData()));
         uart.printf("Voltage: %dV\r\n",
-                    static_cast<int>(sgm.gauges[0].getRawADC()));
+                    static_cast<int>(gauges[0].getRawADC()));
         time::wait(100);
     }
 }

@@ -26,7 +26,7 @@ public:
     /**
      * The node ID used to identify the device on the CAN network.
      */
-    static constexpr uint8_t NODE_ID = 0;
+    static constexpr uint8_t NODE_ID = 4;
 
     /**
      * Updates the voltage values in an array from the SGM object.
@@ -81,8 +81,6 @@ private:
 
         // TPDO 0 CONFIGURATION
         TRANSMIT_PDO_SETTINGS_OBJECT_18XX(0x00, TRANSMIT_PDO_TRIGGER_TIMER, TRANSMIT_PDO_INHIBIT_TIME_DISABLE, 2000),
-        // TPDO 1 CONFIGURATION
-        // TRANSMIT_PDO_SETTINGS_OBJECT_18XX(0x01, TRANSMIT_PDO_TRIGGER_TIMER, TRANSMIT_PDO_INHIBIT_TIME_DISABLE, 2000),
 
         // TPDO 0 MAPPING
         TRANSMIT_PDO_MAPPING_START_KEY_1AXX(0, 4),
@@ -91,30 +89,12 @@ private:
         TRANSMIT_PDO_MAPPING_ENTRY_1AXX(0x00, 3, PDO_MAPPING_UNSIGNED32),
         TRANSMIT_PDO_MAPPING_ENTRY_1AXX(0x00, 4, PDO_MAPPING_UNSIGNED32),
 
-        /***
-        // TPDO 1 MAPPING
-        TRANSMIT_PDO_MAPPING_START_KEY_1AXX(1, 4),
-        TRANSMIT_PDO_MAPPING_ENTRY_1AXX(0x01, 1, PDO_MAPPING_UNSIGNED8),
-        TRANSMIT_PDO_MAPPING_ENTRY_1AXX(0x01, 2, PDO_MAPPING_UNSIGNED8),
-        TRANSMIT_PDO_MAPPING_ENTRY_1AXX(0x01, 3, PDO_MAPPING_UNSIGNED8),
-        TRANSMIT_PDO_MAPPING_ENTRY_1AXX(0x01, 4, PDO_MAPPING_UNSIGNED8),
-        ***/
-
         // TPDO 0 DATA LINKS
         DATA_LINK_START_KEY_21XX(0, 4),
         DATA_LINK_21XX(0x00, 1, CO_TUNSIGNED32, (uintptr_t) &gaugeVolts[0]),
         DATA_LINK_21XX(0x00, 2, CO_TUNSIGNED32, (uintptr_t) &gaugeVolts[1]),
         DATA_LINK_21XX(0x00, 3, CO_TUNSIGNED32, (uintptr_t) &gaugeVolts[2]),
         DATA_LINK_21XX(0x00, 4, CO_TUNSIGNED32, (uintptr_t) &gaugeVolts[3]),
-
-        /***
-        // TPDO 1 DATA LINKS
-        DATA_LINK_START_KEY_21XX(1, 4),
-        DATA_LINK_21XX(0x01, 1, CO_TUNSIGNED8, (uintptr_t) &err_arr[0]),
-        DATA_LINK_21XX(0x01, 2, CO_TUNSIGNED8, (uintptr_t) &err_arr[1]),
-        DATA_LINK_21XX(0x01, 3, CO_TUNSIGNED8, (uintptr_t) &err_arr[2]),
-        DATA_LINK_21XX(0x01, 4, CO_TUNSIGNED8, (uintptr_t) &err_arr[3]),
-        ***/
 
         CO_OBJ_DICT_ENDMARK,
     };

@@ -63,7 +63,7 @@ private:
      *
      * @return an object dictionary
      */
-    CO_OBJ_T* getObjectDictionary();
+    CO_OBJ_T* getObjectDictionary() override;
 
     /**
      * Object Dictionary Size

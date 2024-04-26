@@ -147,6 +147,5 @@ int main() {
     while (1) {
         sgm.process();
         IO::processCANopenNode(&canNode);
-        time::wait(1000);
     }
 }

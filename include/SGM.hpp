@@ -91,10 +91,10 @@ private:
 
         // TPDO 0 DATA LINKS
         DATA_LINK_START_KEY_21XX(0, 4),
-        DATA_LINK_21XX(0x00, 1, CO_TUNSIGNED32, (uintptr_t) &gaugeVolts[0]),
-        DATA_LINK_21XX(0x00, 2, CO_TUNSIGNED32, (uintptr_t) &gaugeVolts[1]),
-        DATA_LINK_21XX(0x00, 3, CO_TUNSIGNED32, (uintptr_t) &gaugeVolts[2]),
-        DATA_LINK_21XX(0x00, 4, CO_TUNSIGNED32, (uintptr_t) &gaugeVolts[3]),
+        DATA_LINK_21XX(0x00, 1, CO_TUNSIGNED32, &gaugeVolts[0]),
+        DATA_LINK_21XX(0x00, 2, CO_TUNSIGNED32, &gaugeVolts[1]),
+        DATA_LINK_21XX(0x00, 3, CO_TUNSIGNED32, &gaugeVolts[2]),
+        DATA_LINK_21XX(0x00, 4, CO_TUNSIGNED32, &gaugeVolts[3]),
 
         CO_OBJ_DICT_ENDMARK,
     };

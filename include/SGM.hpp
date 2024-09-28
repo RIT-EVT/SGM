@@ -17,7 +17,7 @@ namespace SGM {
 class SGM : public CANDevice {
 public:
     /**
-     * Constructor takes an array 4 strain gauges
+     * Constructor takes an array of 4 strain gauges
      *
      * @param[in] gauges the strain gauges
      */
@@ -40,17 +40,10 @@ public:
      */
     uint8_t getNodeID() override;
 
-    /**
-     * Get the number of elements in the object dictionary.
-     *
-     * @return The number of elements in the object dictionary
-     */
     uint8_t getNumElements() override;
 
 private:
-    /**
-     * Stores the 4 strain gauges
-     */
+    /** Stores the 4 strain gauges */
     DEV::StrainGauge gauges[NUM_GAUGES];
 
     /**

@@ -3,6 +3,7 @@
 namespace IO = EVT::core::IO;
 
 namespace SGM {
+
 SGM::SGM(DEV::StrainGauge gauges[NUM_GAUGES]) : gauges{gauges[0], gauges[1], gauges[2], gauges[3]} {}
 
 CO_OBJ_T* SGM::getObjectDictionary() {
@@ -20,7 +21,7 @@ uint8_t SGM::getNodeID() {
 
 void SGM::process() {
     for (int i = 0; i < NUM_GAUGES; i++) {
-        gaugeVolts[i] = gauges[i].getProcessedData();
+        gaugeVolts[i] = gauges[i].getForce();
     }
 }
 

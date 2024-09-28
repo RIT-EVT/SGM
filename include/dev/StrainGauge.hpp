@@ -24,7 +24,7 @@ public:
      *
      * @return The conversion of the ADC value into useful stress data
      */
-    uint32_t getProcessedData();
+    uint32_t getForce();
 
     /**
      *     Returns the raw ADC values

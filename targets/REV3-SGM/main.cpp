@@ -72,12 +72,10 @@ int main() {
     log::LOGGER.setUART(&uart);
 
     // Setup pins for Strain Gauges
-    IO::ADC& adc0 = IO::getADC<IO::Pin::PA_0>();
-    IO::ADC& adc1 = IO::getADC<IO::Pin::PA_0>();
-    IO::ADC& adc2 = IO::getADC<IO::Pin::PA_0>();
-    IO::ADC& adc3 = IO::getADC<IO::Pin::PA_0>();
-
-    time::wait(500);
+    IO::ADC& adc0 = IO::getADC<IO::Pin::PC_0>();
+    IO::ADC& adc1 = IO::getADC<IO::Pin::PC_1>();
+    IO::ADC& adc2 = IO::getADC<IO::Pin::PC_2>();
+    IO::ADC& adc3 = IO::getADC<IO::Pin::PC_3>();
 
     // Create an instance for each strain gauge
     SGM::DEV::StrainGauge gauges[NUM_GAUGES] = {
@@ -141,8 +139,6 @@ int main() {
 
     // Set the node to operational mode
     CONmtSetMode(&canNode.Nmt, CO_OPERATIONAL);
-
-    time::wait(500);
 
     while (1) {
         sgm.process();

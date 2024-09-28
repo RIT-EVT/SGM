@@ -1,6 +1,7 @@
 /**
 * This example prints out stress reading from a strain gauge
 */
+
 #include <EVT/io/ADC.hpp>
 #include <EVT/io/UART.hpp>
 #include <EVT/manager.hpp>
@@ -26,15 +27,11 @@ int main() {
     // Setup IO
     IO::UART& uart = IO::getUART<IO::Pin::PA_6, IO::Pin::PA_5>(9600);
 
-    time::wait(500);
-
     // Setup pins for Strain Gauges
-    IO::ADC& adc0 = IO::getADC<IO::Pin::PA_0>();
-    IO::ADC& adc1 = IO::getADC<IO::Pin::PA_0>();
-    IO::ADC& adc2 = IO::getADC<IO::Pin::PA_0>();
-    IO::ADC& adc3 = IO::getADC<IO::Pin::PA_0>();
-
-    time::wait(500);
+    IO::ADC& adc0 = IO::getADC<IO::Pin::PC_0>();
+    IO::ADC& adc1 = IO::getADC<IO::Pin::PC_1>();
+    IO::ADC& adc2 = IO::getADC<IO::Pin::PC_2>();
+    IO::ADC& adc3 = IO::getADC<IO::Pin::PC_3>();
 
     // Create an instance for each strain gauge
     SGM::DEV::StrainGauge gauges[NUM_GAUGES] = {
@@ -50,9 +47,9 @@ int main() {
 
     while (1) {
         uart.printf("Strain: %dunit\r\n",
-                    static_cast<int>(gauges[0].getProcessedData()));
+                    static_cast<int>(gauges[0].getForce()));
         uart.printf("Voltage: %dV\r\n",
                     static_cast<int>(gauges[0].getRawADC()));
-        time::wait(100);
+        time::wait(500);
     }
 }

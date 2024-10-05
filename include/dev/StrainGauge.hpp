@@ -27,9 +27,9 @@ public:
     uint32_t getForce();
 
     /**
-     *     Returns the raw ADC values
+     * Returns the raw ADC values
      *
-     *     @return The raw values from the ADC
+     * @return The raw values from the ADC
      */
     uint32_t getRawADC();
 

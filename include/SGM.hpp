@@ -46,10 +46,8 @@ private:
     /** Stores the 4 strain gauges */
     DEV::StrainGauge gauges[NUM_GAUGES];
 
-    /**
-     * Stores the 4 32-bit voltage values.
-     */
-    uint32_t gaugeVolts[NUM_GAUGES] = {};
+    /** Stores the 4 16-bit voltage values. */
+    uint16_t force[NUM_GAUGES] = {};
 
     /**
      * Gets the object dictionary
@@ -77,17 +75,17 @@ private:
 
         // TPDO 0 MAPPING
         TRANSMIT_PDO_MAPPING_START_KEY_1AXX(0, 4),
-        TRANSMIT_PDO_MAPPING_ENTRY_1AXX(0x00, 1, PDO_MAPPING_UNSIGNED32),
-        TRANSMIT_PDO_MAPPING_ENTRY_1AXX(0x00, 2, PDO_MAPPING_UNSIGNED32),
-        TRANSMIT_PDO_MAPPING_ENTRY_1AXX(0x00, 3, PDO_MAPPING_UNSIGNED32),
-        TRANSMIT_PDO_MAPPING_ENTRY_1AXX(0x00, 4, PDO_MAPPING_UNSIGNED32),
+        TRANSMIT_PDO_MAPPING_ENTRY_1AXX(0x00, 1, PDO_MAPPING_UNSIGNED16),
+        TRANSMIT_PDO_MAPPING_ENTRY_1AXX(0x00, 2, PDO_MAPPING_UNSIGNED16),
+        TRANSMIT_PDO_MAPPING_ENTRY_1AXX(0x00, 3, PDO_MAPPING_UNSIGNED16),
+        TRANSMIT_PDO_MAPPING_ENTRY_1AXX(0x00, 4, PDO_MAPPING_UNSIGNED16),
 
         // TPDO 0 DATA LINKS
         DATA_LINK_START_KEY_21XX(0, 4),
-        DATA_LINK_21XX(0x00, 1, CO_TUNSIGNED32, &gaugeVolts[0]),
-        DATA_LINK_21XX(0x00, 2, CO_TUNSIGNED32, &gaugeVolts[1]),
-        DATA_LINK_21XX(0x00, 3, CO_TUNSIGNED32, &gaugeVolts[2]),
-        DATA_LINK_21XX(0x00, 4, CO_TUNSIGNED32, &gaugeVolts[3]),
+        DATA_LINK_21XX(0x00, 1, CO_TUNSIGNED16, &force[0]),
+        DATA_LINK_21XX(0x00, 2, CO_TUNSIGNED16, &force[1]),
+        DATA_LINK_21XX(0x00, 3, CO_TUNSIGNED16, &force[2]),
+        DATA_LINK_21XX(0x00, 4, CO_TUNSIGNED16, &force[3]),
 
         CO_OBJ_DICT_ENDMARK,
     };

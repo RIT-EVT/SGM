@@ -21,7 +21,7 @@ uint8_t SGM::getNodeID() {
 
 void SGM::process() {
     for (int i = 0; i < NUM_GAUGES; i++) {
-        gaugeVolts[i] = gauges[i].getForce();
+        force[i] = gauges[i].getForce();
     }
 }
 

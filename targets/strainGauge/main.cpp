@@ -15,7 +15,7 @@ namespace time = EVT::core::time;
 /**
 * Note, this conversion function is just to show off how a conversion
 * function will look like. In actuality, this will be determined through
-* testing/reading the thermistor datasheet.
+* testing/reading the strain gauge datasheet.
 */
 uint32_t convert(uint32_t voltage) {
     return voltage / 2;
@@ -43,7 +43,7 @@ int main() {
 
     SGM::SGM sgm = SGM::SGM(gauges);
 
-    uart.printf("Starting thermistor test\r\n");
+    uart.printf("Starting strain gauge test\r\n");
 
     while (1) {
         uart.printf("Strain: %dunit\r\n",

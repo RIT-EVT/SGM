@@ -6,3 +6,4 @@ supports multiple strain gauges, applying a voltage over the strain gauge and me
 As the strain gauge faces stress/strain, its resistance changes, which results in a change to the voltage 
 drop. The SGM amplifies the measured voltage before reading, though it should remain in the range of 0V to 3V3.
 The SGM performs processing (filtering) on the raw voltage data before broadcasting the data on the CAN network.
+This is on chip STM32F334 with the main target REV3-SGM.

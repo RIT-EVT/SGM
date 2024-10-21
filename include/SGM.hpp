@@ -46,7 +46,7 @@ private:
     /** Stores the 4 strain gauges */
     DEV::StrainGauge gauges[NUM_GAUGES];
 
-    /** Stores the 4 16-bit voltage values. */
+    /** Stores the 4 16-bit force values. */
     uint16_t force[NUM_GAUGES] = {};
 
     /**

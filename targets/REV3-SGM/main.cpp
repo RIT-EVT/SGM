@@ -24,7 +24,6 @@ namespace DEV = EVT::core::DEV;
  * function will look like. In actuality, this will be determined through
  * testing/reading the strain gauge datasheet.
  */
-
 uint32_t convert(uint32_t voltage) {
     return voltage / 2;
 }

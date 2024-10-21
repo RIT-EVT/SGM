@@ -28,10 +28,10 @@ int main() {
     IO::UART& uart = IO::getUART<IO::Pin::PA_6, IO::Pin::PA_5>(9600);
 
     // Setup pins for Strain Gauges
-    IO::ADC& adc0 = IO::getADC<IO::Pin::PC_0>();// Strain Gauge D
-    IO::ADC& adc1 = IO::getADC<IO::Pin::PC_1>();// Strain Gauge C
-    IO::ADC& adc2 = IO::getADC<IO::Pin::PC_2>();// Strain Gauge B
-    IO::ADC& adc3 = IO::getADC<IO::Pin::PC_3>();// Strain Gauge A
+    IO::ADC& adc0 = IO::getADC<IO::Pin::PC_0>(); // Strain Gauge D
+    IO::ADC& adc1 = IO::getADC<IO::Pin::PC_1>(); // Strain Gauge C
+    IO::ADC& adc2 = IO::getADC<IO::Pin::PC_2>(); // Strain Gauge B
+    IO::ADC& adc3 = IO::getADC<IO::Pin::PC_3>(); // Strain Gauge A
 
     // Create an instance for each strain gauge
     SGM::DEV::StrainGauge gauges[NUM_GAUGES] = {

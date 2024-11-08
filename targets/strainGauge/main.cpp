@@ -46,10 +46,10 @@ int main() {
     uart.printf("Starting strain gauge test\r\n");
 
     while (1) {
-        uart.printf("Strain: %dunit\r\n",
-                    static_cast<int>(gauges[0].getForce()));
-        uart.printf("Voltage: %dV\r\n",
-                    static_cast<int>(gauges[0].getRawADC()));
+        uart.printf("Strain: %u unit\r\n",
+                    gauges[0].getForce());
+        uart.printf("Voltage: %u V\r\n",
+                    gauges[0].getRawADC());
         time::wait(500);
     }
 }

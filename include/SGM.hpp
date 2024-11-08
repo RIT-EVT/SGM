@@ -21,33 +21,7 @@ public:
      *
      * @param[in] gauges the strain gauges
      */
-    explicit SGM(DEV::StrainGauge gauges[NUM_GAUGES]);
-
-    /**
-     * The node ID used to identify the device on the CAN network.
-     */
-    static constexpr uint8_t NODE_ID = 4;
-
-    /**
-     * Updates the voltage values in an array from the SGM object.
-     */
-    void process();
-
-    /**
-     * Get the device's node ID
-     *
-     * @return The node ID of the can device.
-     */
-    uint8_t getNodeID() override;
-
-    uint8_t getNumElements() override;
-
-private:
-    /** Stores the 4 strain gauges */
-    DEV::StrainGauge gauges[NUM_GAUGES];
-
-    /** Stores the 4 16-bit force values. */
-    uint16_t force[NUM_GAUGES] = {};
+    explicit SGM(DEV::StrainGauge* gauges);
 
     /**
      * Gets the object dictionary
@@ -55,6 +29,26 @@ private:
      * @return an object dictionary
      */
     CO_OBJ_T* getObjectDictionary() override;
+
+    /**
+     * The node ID used to identify the device on the CAN network.
+     */
+    static constexpr uint8_t NODE_ID = 8;
+
+    /**
+     * Updates the voltage values in the force array
+     */
+    void process();
+
+    uint8_t getNodeID() override;
+    uint8_t getNumElements() override;
+
+private:
+    /** Stores the 4 strain gauges */
+    DEV::StrainGauge* gauges;
+
+    /** Stores the 4 16-bit force values. */
+    uint16_t force[NUM_GAUGES] = {};
 
     /**
      * Object Dictionary Size

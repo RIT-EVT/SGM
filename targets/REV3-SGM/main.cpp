@@ -71,17 +71,17 @@ int main() {
     log::LOGGER.setUART(&uart);
 
     // Setup pins for Strain Gauges
-    IO::ADC& adc0 = IO::getADC<IO::Pin::PC_0>();// Strain Gauge D
-    IO::ADC& adc1 = IO::getADC<IO::Pin::PC_1>();// Strain Gauge C
-    IO::ADC& adc2 = IO::getADC<IO::Pin::PC_2>();// Strain Gauge B
-    IO::ADC& adc3 = IO::getADC<IO::Pin::PC_3>();// Strain Gauge A
+    IO::ADC& adcA = IO::getADC<IO::Pin::PC_3>();// Strain Gauge A
+    IO::ADC& adcB = IO::getADC<IO::Pin::PC_2>();// Strain Gauge B
+    IO::ADC& adcC = IO::getADC<IO::Pin::PC_1>();// Strain Gauge C
+    IO::ADC& adcD = IO::getADC<IO::Pin::PC_0>();// Strain Gauge D
 
     // Create an instance for each strain gauge
     SGM::DEV::StrainGauge gauges[NUM_GAUGES] = {
-        SGM::DEV::StrainGauge(adc0, convert),
-        SGM::DEV::StrainGauge(adc1, convert),
-        SGM::DEV::StrainGauge(adc2, convert),
-        SGM::DEV::StrainGauge(adc3, convert),
+        SGM::DEV::StrainGauge(adcA, convert),
+        SGM::DEV::StrainGauge(adcB, convert),
+        SGM::DEV::StrainGauge(adcC, convert),
+        SGM::DEV::StrainGauge(adcD, convert),
     };
 
     SGM::SGM sgm = SGM::SGM(gauges);

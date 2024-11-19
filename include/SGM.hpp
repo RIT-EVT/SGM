@@ -1,4 +1,6 @@
-#pragma once
+#ifndef SGM_HPP
+#define SGM_HPP
+
 #include <EVT/io/ADC.hpp>
 #include <EVT/io/CANDevice.hpp>
 #include <EVT/io/CANOpenMacros.hpp>
@@ -86,3 +88,4 @@ private:
 };
 
 }// namespace SGM
+#endif

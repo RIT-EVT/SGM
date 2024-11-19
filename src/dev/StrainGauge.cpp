@@ -6,7 +6,6 @@ namespace SGM::DEV {
 
 StrainGauge::StrainGauge(EVT::core::IO::ADC& adc, uint32_t (*conversion)(uint32_t)) : adc(adc), conversion(conversion) {}
 
-/** Converts raw voltage from the adc to strain value */
 uint32_t StrainGauge::getForce() {
     uint32_t buf = adc.read() * 1000;
     return conversion(buf);

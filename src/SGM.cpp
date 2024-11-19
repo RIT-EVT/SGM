@@ -14,7 +14,6 @@ uint8_t SGM::getNumElements() {
     return OBJECT_DICTIONARY_SIZE;
 }
 
-// Update with proper Node ID given by integration!
 uint8_t SGM::getNodeID() {
     return NODE_ID;
 }

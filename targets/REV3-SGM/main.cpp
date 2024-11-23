@@ -67,7 +67,7 @@ int main() {
     EVT::core::platform::init();
 
     // Setup UART
-    IO::UART& uart = IO::getUART<IO::Pin::UART_TX, IO::Pin::UART_RX>(9600);
+    IO::UART& uart = IO::getUART<IO::Pin::PA_6, IO::Pin::PA_5>(9600);
     log::LOGGER.setUART(&uart);
 
     // Setup pins for Strain Gauges

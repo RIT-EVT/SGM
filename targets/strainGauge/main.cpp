@@ -25,7 +25,7 @@ int main() {
     EVT::core::platform::init();
 
     // Setup IO
-    IO::UART& uart = IO::getUART<IO::Pin::UART_TX, IO::Pin::UART_RX>(9600);
+    IO::UART& uart = IO::getUART<IO::Pin::PA_6, IO::Pin::PA_5>(9600);
 
     // Setup pins for Strain Gauges
     IO::ADC& adcA = IO::getADC<IO::Pin::PC_3>();// Strain Gauge A

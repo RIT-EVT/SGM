@@ -25,13 +25,13 @@ int main() {
     EVT::core::platform::init();
 
     // Setup IO
-    IO::UART& uart = IO::getUART<IO::Pin::PA_6, IO::Pin::PA_5>(9600);
+    IO::UART& uart = IO::getUART<IO::Pin::UART_TX, IO::Pin::UART_RX>(9600);
 
     // Setup pins for Strain Gauges
     IO::ADC& adcA = IO::getADC<IO::Pin::PC_3>();// Strain Gauge A
     IO::ADC& adcB = IO::getADC<IO::Pin::PC_2>();// Strain Gauge B
-    IO::ADC& adcD = IO::getADC<IO::Pin::PC_0>();// Strain Gauge D
     IO::ADC& adcC = IO::getADC<IO::Pin::PC_1>();// Strain Gauge C
+    IO::ADC& adcD = IO::getADC<IO::Pin::PC_0>();// Strain Gauge D
 
     // Create an instance for each strain gauge
     SGM::DEV::StrainGauge gauges[NUM_GAUGES] = {
@@ -58,7 +58,7 @@ int main() {
                     gauges[2].getRawADC());
         uart.printf("D Strain: %u unit\r\n",
                     gauges[3].getForce());
-        uart.printf("D Voltage: %u V\r\n",
+        uart.printf("D Voltage: %u V\r\n\n",
                     gauges[3].getRawADC());
         time::wait(500);
     }
